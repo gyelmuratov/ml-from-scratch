@@ -13,7 +13,7 @@ class NormalEquation:
 
         X_b = np.c_[np.ones(m), X]          # 1-qadam: 1 ustun qoshish
         XtX = X_b.T @ X_b                   # 2-qadam: XᵀX
-        XtX_inv = np.linalg.inv(XtX)        # 3-qadam: (XᵀX)⁻¹
+        XtX_inv = np.linalg.pinv(XtX)        # 3-qadam: (XᵀX)⁻¹  — pinv: barqaror teskari matritsa
         Xty = X_b.T @ y                     # 4.qadam:  Xᵀy
         theta = XtX_inv @ Xty               # 5.qadam: θ = (XᵀX)⁻¹ · Xᵀy
 
