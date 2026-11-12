@@ -32,3 +32,13 @@ plt.title("Loss")
 plt.xlabel("Iteratsiya")
 plt.savefig("linear_loss.png")
 print("Grafiklar saqlandi: linear_fit.png, linear_loss.png")
+
+# Normal Equation bilan solishtirish
+from normal_equation import NormalEquation
+
+ne = NormalEquation().fit(X,y)
+y_pred_ne = ne.predict(X)
+
+print("\n=== Solishtirish ===")
+print(f"Gradient Descent: w = {model.w[0]:.4f}, b = {model.b:.4f}, MSE = {mse(y, y_pred):.4f}")
+print(f"Normal Equation:  w = {ne.w[0]:.4f}, b = {ne.b:.4f}, MSE = {mse(y, y_pred_ne):.4f}")
